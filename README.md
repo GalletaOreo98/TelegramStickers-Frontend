@@ -1,5 +1,9 @@
 # TelegramStickers-Frontend
-A frontend for [TelegramStickers repository](https://github.com/GalletaOreo98/TelegramStickers)
+A frontend for [TelegramStickers repository](https://github.com/GalletaOreo98/TelegramStickers)  
+
+### [GO TO THE WEBSITE](https://telegram-stickers.netlify.app/)  
+
+## Angular Project
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.6.
 
