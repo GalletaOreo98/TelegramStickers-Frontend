@@ -1,0 +1,16 @@
+<nav class="navbar navbar-dark shadow">
+  <div class="container">
+    <h2 class="text-white">Telegram Stickers</h2>
+  </div>
+</nav>
+
+<div class="row mx-4 my-4">
+
+  <div id="icons" *ngFor="let sticker of stickersPacks" (click)="selectStickerPack(sticker.name);"
+    class="col-lg-1 col-md-4 col-sm-6 col-6 my-1">
+
+    <img [src]="sticker.data[1].download_url" alt="sticker.icon">
+
+  </div>
+
+</div>

@@ -1,0 +1,1 @@
+export { IPack, IPackData } from "./sticker-interface";
