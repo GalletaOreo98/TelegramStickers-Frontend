@@ -1,7 +1,7 @@
 # TelegramStickers-Frontend
 A frontend for [TelegramStickers repository](https://github.com/GalletaOreo98/TelegramStickers)  
 
-### [GO TO THE WEBSITE](https://telegram-stickers.netlify.app/)  
+### [GO TO THE WEBSITE](http://telegram-stickers-frontend.vercel.app/)  
 
 ## Angular Project
 
