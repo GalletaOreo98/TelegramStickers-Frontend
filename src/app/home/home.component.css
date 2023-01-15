@@ -2,3 +2,12 @@
   display: flex;
   justify-content: center;
 }
+
+#div-nav {
+  justify-items: center;
+}
+
+.img-nav {
+  margin-left: 1.5rem;
+  margin-right: 2px;
+}
