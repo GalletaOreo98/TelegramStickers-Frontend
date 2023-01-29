@@ -1,0 +1,4 @@
+This is a Brave Rewards publisher verification file.
+
+Domain: telegram-stickers-frontend.vercel.app
+Token: 999c37ddc313546ab5a5555c02f24b8338ebf27dacdec1075a6c88ef0d0b1bf2
