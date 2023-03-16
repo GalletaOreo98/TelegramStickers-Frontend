@@ -2,7 +2,7 @@
   <div class="col-lg-2 col-md-4 col-sm-6 col-6 my-1" *ngFor="let sticker of stickers">
     <img [src]="sticker.download_url" alt="{{sticker.name}}" class="img-fluid" (load)="sticker.loaded = true">
     <ng-template [ngIf]="!sticker.loaded">
-      <ngb-progressbar [value]="50" [striped]="true" [animated]="true"></ngb-progressbar>
+      <ngb-progressbar height="2rem" [value]="50" [striped]="true" [animated]="true"></ngb-progressbar>
     </ng-template>
   </div>
 </div>
