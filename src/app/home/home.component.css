@@ -11,3 +11,8 @@
   margin-left: 1.5rem;
   margin-right: 2px;
 }
+
+.offcanvas-header {
+  background: #53415c;
+  color: #ffffff;
+}

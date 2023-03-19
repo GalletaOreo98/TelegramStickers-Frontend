@@ -1,8 +1,10 @@
-<nav class="navbar navbar-dark shadow">
-  <div id="div-nav" class="d-flex">
+<nav class="main-nav shadow d-flex py-2">
+  <div id="div-nav" class="d-flex my-auto">
     <img src="assets/logo.png" alt="Logo" class="img-nav col-1">
     <h2 class="text-white">Telegram Stickers</h2>
   </div>
+  <fa-icon [icon]="faBars" style="font-size: 1.8rem;" class="ms-auto pe-4 text-white p-2"
+    (click)="openOffCanvas()"></fa-icon>
 </nav>
 
 <div class="row mx-4 my-4">
