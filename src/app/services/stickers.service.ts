@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { forkJoin, map, mergeMap, Observable } from 'rxjs';
-import { IPack, IPackData } from '../models';
+import { IPack, IPackData, StickerPackDataJson } from '../models';
 
 @Injectable({
   providedIn: 'root'
@@ -38,9 +38,11 @@ export class StickersService {
     return this.http.get<IPackData[]>(url);
   }
 
-  // getStickersFromPack(StickerPackName:string) {
-  //   return this.http.get<IPackData[]>(`https://api.github.com/repos/GalletaOreo98/TelegramStickers/contents/${StickerPackName}/PNG?ref=main`);
-  // }
+  //Obtiene la información dentro del archivo Data.json del pack de stickers
+  getPackDataInfo(StickerPackName: string): Observable<StickerPackDataJson>{
+    return this.http
+      .get<StickerPackDataJson>(`https://raw.githubusercontent.com/GalletaOreo98/TelegramStickers/main/${StickerPackName}/Data.json`)
+  }
 
   getStickersFromPack(StickerPackName: string) {
     return this.http

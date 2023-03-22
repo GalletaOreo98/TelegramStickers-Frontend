@@ -1,1 +1,1 @@
-export { IPack, IPackData } from "./sticker-interface";
+export { IPack, IPackData, StickerPackDataJson } from "./sticker-interface";

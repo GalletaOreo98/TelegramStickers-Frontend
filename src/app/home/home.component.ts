@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
-import { IPack, IPackData } from '../models';
+import { IPack, IPackData, StickerPackDataJson } from '../models';
 import { StickersService } from '../services/stickers.service';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { NgbActiveOffcanvas, NgbOffcanvas } from '@ng-bootstrap/ng-bootstrap';
@@ -72,6 +72,8 @@ export class HomeComponent implements OnInit {
   faBars = faBars;
   stickersPacks!: IPack[];
   stickersFromPack!: IPackData[];
+  stickersDataJson!: StickerPackDataJson;
+
   constructor(private stickerService: StickersService, private router: Router, private OffCanvasService: NgbOffcanvas) { }
 
   ngOnInit(): void {
@@ -83,14 +85,23 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  selectStickerPack(StickerPackName: string) {
-    console.log(StickerPackName);
-    this.stickerService.getStickersFromPack(StickerPackName).subscribe({
+  selectStickerPack(stickerPackName: string) {
+    console.log(stickerPackName);
+    this.stickerService.getStickersFromPack(stickerPackName).subscribe({
       next: res => {
         this.stickersFromPack = res;
       },
       complete: () => {
-        this.router.navigate(['sticker', StickerPackName], { state: { stickersFromPack: this.stickersFromPack } });
+
+        this.stickerService.getPackDataInfo(stickerPackName).subscribe({
+          next: res => {
+            this.stickersDataJson = res;
+          },
+          complete: () => {
+            this.router.navigate(['sticker', stickerPackName], { state: { stickersFromPack: this.stickersFromPack, stickersDataJson: this.stickersDataJson } });
+          }
+        });
+
       }
     })
   }

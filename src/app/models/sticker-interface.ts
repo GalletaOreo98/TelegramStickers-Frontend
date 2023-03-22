@@ -10,3 +10,9 @@ export interface IPackData {
     download_url: string
     loaded: boolean
 }
+
+export interface StickerPackDataJson {
+    url: string,
+    published: boolean,
+    description: string
+}

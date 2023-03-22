@@ -1,3 +1,14 @@
+
+<div *ngIf="stickersDataJson" class="d-flex justify-content-center">
+<div class="card my-4 mx-2 col-lg-6 col-md-8 col-10">
+  <div class="card-body">
+    <h5 class="card-title">{{stickerPackName}}</h5>
+    <p class="card-text"><small class="text-muted">{{stickersDataJson.description}}</small></p>
+    <a [href]="stickersDataJson.url" class="card-link">Telegram link</a>
+  </div>
+</div>
+</div>
+
 <div class="row mx-4 my-4">
   <div class="col-lg-2 col-md-4 col-sm-6 col-6 my-1" *ngFor="let sticker of stickers">
     <img [src]="sticker.download_url" alt="{{sticker.name}}" class="img-fluid" (load)="sticker.loaded = true">

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { IPackData } from 'src/app/models';
+import { IPackData, StickerPackDataJson } from 'src/app/models';
 import { StickersService } from 'src/app/services/stickers.service';
 
 @Component({
@@ -10,24 +10,33 @@ import { StickersService } from 'src/app/services/stickers.service';
 })
 export class StickerPackComponent implements OnInit {
   stickers!: IPackData[];
+  stickersDataJson!: StickerPackDataJson;
+  stickerPackName!: string;
 
   constructor(private router: Router, private route:ActivatedRoute, private stickerService: StickersService) {
     const currentNavigation = this.router.getCurrentNavigation();
+    this.stickerPackName = this.route.snapshot.params['sticker-pack-name'];
+    
     if (currentNavigation && currentNavigation.extras.state) {
       this.stickers = currentNavigation.extras.state['stickersFromPack'];
+      this.stickersDataJson = currentNavigation.extras.state['stickersDataJson'];
     }else {
-      const stickerPackName = this.route.snapshot.params['sticker-pack-name']
-      console.log(stickerPackName);
-      this.stickerService.getStickersFromPack(stickerPackName).subscribe({
+      console.log(this.stickerPackName);
+      this.stickerService.getStickersFromPack(this.stickerPackName).subscribe({
         next: res => {
           this.stickers = res;
+          this.stickerService.getPackDataInfo(this.stickerPackName).subscribe({
+            next: res => {
+              this.stickersDataJson = res;
+            }
+          });
         }
-      })
+      });
     }
   }
 
   ngOnInit(): void {
-    console.log(this.stickers);
+    //console.log(this.stickersDataJson);
   }
 
   trackByStickerId(index: number, sticker: any) {
